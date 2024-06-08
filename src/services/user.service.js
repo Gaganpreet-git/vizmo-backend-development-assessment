@@ -11,4 +11,21 @@ const saveUser = async (user) => {
   return user;
 };
 
-module.exports = { saveUser };
+const getUserByEmail = async (email) => {
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    throw new ApiError(200, "User not found");
+  }
+  return user;
+};
+
+const getUserById = async (id) => {
+  const user = await User.findById(id);
+  if (!user) {
+    throw new ApiError(200, "User not found");
+  }
+  return user;
+};
+
+module.exports = { saveUser, getUserByEmail, getUserById };
