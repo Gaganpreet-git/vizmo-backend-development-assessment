@@ -25,7 +25,13 @@ const getPost = async (req, res) => {
 const deletePost = async (req, res) => {};
 
 // Function to update a post
-const updatePost = async (req, res) => {};
+const updatePost = async (req, res) => {
+  const { postId } = req.params;
+  const postData = req.body;
+  const author = req.user._id;
+  const post = await postService.updatePost(postId, postData, author);
+  res.status(200).json(post);
+};
 
 module.exports = {
   addNewPost: catchAsync(addNewPost),

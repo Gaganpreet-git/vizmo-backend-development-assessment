@@ -34,7 +34,19 @@ const getPostById = async (postId) => {
 
 const deletePost = (postId) => {};
 
-const updatePost = (postId, updatedData) => {};
+const updatePost = async (postId, updatedData, author) => {
+  const updatedPost = await Post.findOneAndUpdate(
+    { _id: postId, author: author },
+    { $set: updatedData },
+    { new: true }
+  );
+
+  if (!updatedPost) {
+    throw new Error("Post not found or unauthorized to update");
+  }
+
+  return updatedPost;
+};
 
 module.exports = {
   createPost,
