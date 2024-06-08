@@ -1,4 +1,4 @@
-const { userService, tokenService } = require("../services");
+const { authService, userService, tokenService } = require("../services");
 const catchAsync = require("../utils/CatchAsync");
 
 const register = async (req, res) => {
