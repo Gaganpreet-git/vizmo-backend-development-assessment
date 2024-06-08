@@ -1,13 +1,14 @@
 const User = require("../models/User.model");
+const ApiError = require("../utils/ApiError");
 
-const saveUser = async (user) => {
+const createUser = async (userData) => {
   // check if user already exists
-  const user = User.isEmailTaken(user.email);
+  const existingUser = await User.isEmailTaken(userData.email);
 
-  if (user) {
+  if (existingUser) {
     throw new ApiError(200, "User already registered");
   }
-  const user = await User.create(userBody);
+  const user = await User.create(userData);
   return user;
 };
 
@@ -28,4 +29,4 @@ const getUserById = async (id) => {
   return user;
 };
 
-module.exports = { saveUser, getUserByEmail, getUserById };
+module.exports = { createUser, getUserByEmail, getUserById };
