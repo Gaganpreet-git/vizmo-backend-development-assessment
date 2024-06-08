@@ -35,6 +35,18 @@ router.post("/", postController.addNewPost);
 // Route to get all posts also support filter by title & author
 router.get("/", postController.getAllPosts);
 
+/*{
+    "_id": "66640521f38cbd49003d9a5f",
+    "title": "Post 2",
+    "content": "Post 2 content",
+    "author": "658fd4d63cbf735e6cc6e5f7",
+    "category": "Fashion",
+    "createdAt": "2024-06-08T07:15:45.340Z",
+    "updatedAt": "2024-06-08T07:15:45.340Z",
+    "__v": 0
+}
+    */
+
 // Route to get details of single blog post
 router.get("/:postId", postController.getPost);
 
