@@ -14,9 +14,7 @@ const catchAsync = require("../utils/CatchAsync");
  * @returns {Promise<void>} - A promise that resolves when the post is successfully added.
  */ const addNewPost = async (req, res) => {
   const author = req.user.sub;
-  console.log(req.user);
   const post = await postService.createPost({ ...req.body, author });
-  console.log(post);
   res.status(201).json(post);
 };
 
@@ -87,7 +85,6 @@ const updatePost = async (req, res) => {
   const { postId } = req.params;
   const postData = req.body;
   const author = req.user.sub;
-  console.log(postId, postData, author);
   const post = await postService.updatePost(postId, postData, author);
   res.status(200).json(post);
 };
