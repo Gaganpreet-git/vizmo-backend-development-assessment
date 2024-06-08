@@ -34,6 +34,8 @@ The project is built using the following technologies:
 - MongoDB
 - JSON Web Tokens (JWT) for authentication
 - mongoose
+- swagger UI
+- jsdoc
 
 ## Installation
 
