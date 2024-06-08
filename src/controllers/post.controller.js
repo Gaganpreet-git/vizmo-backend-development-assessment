@@ -3,7 +3,10 @@ const catchAsync = require("../utils/CatchAsync");
 
 // Function to add new post
 const addNewPost = async (req, res) => {
-  const post = await postService.createPost(req.body);
+  const author = req.user.sub;
+  console.log(req.user);
+  const post = await postService.createPost({ ...req.body, author });
+  console.log(post);
   res.status(201).json(post);
 };
 
@@ -24,7 +27,7 @@ const getPost = async (req, res) => {
 // Function to delete a post
 const deletePost = async (req, res) => {
   const { postId } = req.params;
-  const author = req.user._id;
+  const author = req.user.sub;
   const post = await postService.deletePost(postId, author);
   res.status(204).json(post);
 };
@@ -33,7 +36,8 @@ const deletePost = async (req, res) => {
 const updatePost = async (req, res) => {
   const { postId } = req.params;
   const postData = req.body;
-  const author = req.user._id;
+  const author = req.user.sub;
+  console.log(postId, postData, author);
   const post = await postService.updatePost(postId, postData, author);
   res.status(200).json(post);
 };
