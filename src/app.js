@@ -5,6 +5,7 @@ const routes = require("./routes/");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const ApiError = require("./utils/ApiError");
+const cors = require("cors");
 
 // Swagger configuration
 const options = {
@@ -34,6 +35,8 @@ const swaggerSpec = swaggerJsdoc(options);
 
 // Serve Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use(cors());
 
 app.use(express.json());
 
