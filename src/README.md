@@ -14,16 +14,15 @@ http://localhost:3000/api-docs
 
 ## Deployed Url
 
-https://vizmo-backend-development-assessment.onrender.com/
-(use '/api' endpoint)
-Example call :
-https://vizmo-backend-development-assessment.onrender.com/api/posts
+-https://vizmo-backend-development-assessment.onrender.com/
+-(use '/api' endpoint)
+-Example call : -https://vizmo-backend-development-assessment.onrender.com/api/posts
 
 ## Environment variables
 
-MONGODB_URL= Your mongoDB URL
-JWT_SECRET=secret
-JWT_ACCESS_EXPIRATION_MINUTES=240
+-MONGODB_URL= Your mongoDB URL
+-JWT_SECRET=secret
+-JWT_ACCESS_EXPIRATION_MINUTES=240
 
 ### Functionality
 
