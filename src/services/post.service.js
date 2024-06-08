@@ -1,3 +1,5 @@
+const Post = require("../models/post.model");
+
 const createPost = async (postData) => {
   const post = await Post.create(postData);
   return post;

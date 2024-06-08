@@ -2,6 +2,20 @@ const express = require("express");
 const { postController } = require("../controllers");
 const router = express.Router();
 
+/**
+ * sample post created
+ {
+    "title": "Post 1",
+    "content": "Post 1 content",
+    "author": "658fd4d63cbf735e6cc6e5f7",
+    "category": "Fashion",
+    "_id": "6663fa7d32daa2e8b9ae234a",
+    "createdAt": "2024-06-08T06:30:21.656Z",
+    "updatedAt": "2024-06-08T06:30:21.656Z",
+    "__v": 0
+}
+ */
+
 // Route to add new post
 router.post("/", postController.addNewPost);
 
