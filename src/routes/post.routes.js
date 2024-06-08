@@ -16,3 +16,5 @@ router.delete("/:postId", postController.deletePost);
 
 // Route to update blog post
 router.put("/:postId", postController.updatePost);
+
+module.exports = router;
