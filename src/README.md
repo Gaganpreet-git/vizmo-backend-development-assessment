@@ -10,7 +10,7 @@ The backend interacts with the frontend or client applications through a RESTful
 
 ### API Documentation
 
-localhost:3000/api-docs
+http://localhost:3000/api-docs
 
 ## Deployed Url
 
