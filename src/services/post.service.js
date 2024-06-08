@@ -5,8 +5,18 @@ const createPost = async (postData) => {
   return post;
 };
 
-const getAllPosts = async () => {
-  const posts = await Post.find({});
+const getAllPosts = async (title, author) => {
+  const filter = {};
+
+  if (title) {
+    filter.title = title;
+  }
+
+  if (author) {
+    filter.author = author;
+  }
+
+  const posts = await Post.find(filter);
   if (!posts.length) {
     throw new ApiError(404, "No posts found");
   }

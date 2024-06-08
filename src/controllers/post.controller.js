@@ -9,7 +9,8 @@ const addNewPost = async (req, res) => {
 
 // Function to get all posts with filtering
 const getAllPosts = async (req, res) => {
-  const post = await postService.getAllPosts();
+  const { title, author } = req.query;
+  const post = await postService.getAllPosts(title, author);
   res.status(200).json(post);
 };
 
