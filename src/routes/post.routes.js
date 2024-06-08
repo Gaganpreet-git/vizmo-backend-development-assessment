@@ -19,6 +19,19 @@ const router = express.Router();
 // Route to add new post
 router.post("/", postController.addNewPost);
 
+// [
+//     {
+//         "_id": "6663fa7d32daa2e8b9ae234a",
+//         "title": "Post 1",
+//         "content": "Post 1 content",
+//         "author": "658fd4d63cbf735e6cc6e5f7",
+//         "category": "Fashion",
+//         "createdAt": "2024-06-08T06:30:21.656Z",
+//         "updatedAt": "2024-06-08T06:30:21.656Z",
+//         "__v": 0
+//     }
+// ]
+
 // Route to get all posts also support filter by title & author
 router.get("/", postController.getAllPosts);
 
