@@ -5,7 +5,13 @@ const createPost = async (postData) => {
   return post;
 };
 
-const getAllPosts = () => {};
+const getAllPosts = async () => {
+  const posts = await Post.find({});
+  if (!posts.length) {
+    throw new ApiError(404, "No posts found");
+  }
+  return posts;
+};
 
 const getPostById = (postId) => {};
 

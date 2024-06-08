@@ -8,7 +8,10 @@ const addNewPost = async (req, res) => {
 };
 
 // Function to get all posts with filtering
-const getAllPosts = async (req, res) => {};
+const getAllPosts = async (req, res) => {
+  const post = await postService.getAllPosts();
+  res.status(200).json(post);
+};
 
 // Function to get details of a single post
 const getPost = async (req, res) => {};
