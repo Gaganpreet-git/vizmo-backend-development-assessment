@@ -20,6 +20,10 @@ localhost:3000/api-docs
 - **Delete Blog Post**: Users can delete an existing blog post by sending a DELETE request to the `/api/posts/:postId` endpoint, where `:postId` is the ID of the post.
 - **Update Blog Post**: Users can update an existing blog post by sending a PUT request to the `/api/posts/:postId` endpoint, where `:postId` is the ID of the post. The updated data (title, content) should be included in the request body.
 
+## Bonus Features
+
+Added request body validations.
+
 ### Error Handling
 
 The project includes error handling mechanisms to handle various scenarios, such as invalid requests, unauthorized access, and internal server errors. Express error handler middleware is used to centralize error handling and provide consistent error responses.
@@ -36,6 +40,7 @@ The project is built using the following technologies:
 - mongoose
 - swagger UI
 - jsdoc
+- joi
 
 ## Installation
 
