@@ -72,7 +72,7 @@ const getPostById = async (postId) => {
 const deletePost = async (postId, author) => {
   const post = await Post.findOneAndDelete({ _id: postId, author: author });
   if (!post) {
-    throw new ApiError(404, "Post not found");
+    throw new ApiError(404, "Post not found or Unauthorized");
   }
   return post;
 };
@@ -95,7 +95,7 @@ const updatePost = async (postId, updatedData, author) => {
   );
 
   if (!updatedPost) {
-    throw new Error("Post not found or unauthorized to update");
+    throw new Error(404, "Post not found or unauthorized to update");
   }
 
   return updatedPost;
