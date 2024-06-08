@@ -1,5 +1,6 @@
 const express = require("express");
 const { postController } = require("../controllers");
+const auth = require("../middlewares/auth");
 const router = express.Router();
 
 /**
@@ -17,7 +18,7 @@ const router = express.Router();
  */
 
 // Route to add new post
-router.post("/", postController.addNewPost);
+router.post("/", auth, postController.addNewPost);
 
 // [
 //     {
@@ -51,7 +52,7 @@ router.get("/", postController.getAllPosts);
 router.get("/:postId", postController.getPost);
 
 // Route to delete blog post
-router.delete("/:postId", postController.deletePost);
+router.delete("/:postId", auth, postController.deletePost);
 
 /*{
     "_id": "66640521f38cbd49003d9a5f",
@@ -65,6 +66,6 @@ router.delete("/:postId", postController.deletePost);
 }*/
 
 // Route to update blog post
-router.put("/:postId", postController.updatePost);
+router.put("/:postId", auth, postController.updatePost);
 
 module.exports = router;
