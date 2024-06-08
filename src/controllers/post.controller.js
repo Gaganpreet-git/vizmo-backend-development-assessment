@@ -22,7 +22,12 @@ const getPost = async (req, res) => {
 };
 
 // Function to delete a post
-const deletePost = async (req, res) => {};
+const deletePost = async (req, res) => {
+  const { postId } = req.params;
+  const author = req.user._id;
+  const post = await postService.deletePost(postId, author);
+  res.status(204).json(post);
+};
 
 // Function to update a post
 const updatePost = async (req, res) => {

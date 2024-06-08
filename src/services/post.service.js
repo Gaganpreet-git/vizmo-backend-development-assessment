@@ -32,7 +32,13 @@ const getPostById = async (postId) => {
   return post;
 };
 
-const deletePost = (postId) => {};
+const deletePost = async (postId, author) => {
+  const post = await Post.findOneAndDelete({ _id: postId, author: author });
+  if (!post) {
+    throw new ApiError(404, "Post not found");
+  }
+  return post;
+};
 
 const updatePost = async (postId, updatedData, author) => {
   const updatedPost = await Post.findOneAndUpdate(
