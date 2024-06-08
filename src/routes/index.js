@@ -1,6 +1,11 @@
 const express = require("express");
 const { authController } = require("../controllers");
 const postRoutes = require("../routes/post.routes");
+const validate = require("../middlewares/validate");
+const {
+  registerSchema,
+  loginSchema,
+} = require("../validations/auth.validation");
 const router = express.Router();
 
 /**
@@ -48,7 +53,7 @@ const router = express.Router();
  *         description: Internal server error.
  */
 
-router.post("/register", authController.register);
+router.post("/register", validate(registerSchema), authController.register);
 
 /**
  * @swagger
@@ -92,7 +97,7 @@ router.post("/register", authController.register);
  *         description: Internal server error.
  */
 
-router.post("/login", authController.login);
+router.post("/login", validate(loginSchema), authController.login);
 router.use("/posts", postRoutes);
 
 module.exports = router;

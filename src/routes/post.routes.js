@@ -1,6 +1,8 @@
 const express = require("express");
 const { postController } = require("../controllers");
 const auth = require("../middlewares/auth");
+const validate = require("../middlewares/validate");
+const addPostSchema = require("../validations/post.validation");
 const router = express.Router();
 
 /**
@@ -59,7 +61,7 @@ const router = express.Router();
  */
 
 // Route to add new post
-router.post("/", auth, postController.addNewPost);
+router.post("/", auth, validate(addPostSchema), postController.addNewPost);
 
 /**
  * @swagger
@@ -280,6 +282,11 @@ router.delete("/:postId", auth, postController.deletePost);
  *         description: Unauthorized access.
  */
 
-router.put("/:postId", auth, postController.updatePost);
+router.put(
+  "/:postId",
+  auth,
+  validate(addPostSchema),
+  postController.updatePost
+);
 
 module.exports = router;
