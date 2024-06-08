@@ -15,7 +15,11 @@ const getAllPosts = async (req, res) => {
 };
 
 // Function to get details of a single post
-const getPost = async (req, res) => {};
+const getPost = async (req, res) => {
+  const { postId } = req.params;
+  const post = await postService.getPostById(postId);
+  res.status(200).json(post);
+};
 
 // Function to delete a post
 const deletePost = async (req, res) => {};

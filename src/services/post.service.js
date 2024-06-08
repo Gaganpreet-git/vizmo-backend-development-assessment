@@ -1,4 +1,5 @@
 const Post = require("../models/post.model");
+const ApiError = require("../utils/ApiError");
 
 const createPost = async (postData) => {
   const post = await Post.create(postData);
@@ -23,7 +24,13 @@ const getAllPosts = async (title, author) => {
   return posts;
 };
 
-const getPostById = (postId) => {};
+const getPostById = async (postId) => {
+  const post = await Post.findById(postId);
+  if (!post) {
+    throw new ApiError(404, "Post not found");
+  }
+  return post;
+};
 
 const deletePost = (postId) => {};
 
